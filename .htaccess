@@ -1,0 +1,10 @@
+#no deja ingresar a otras carpetas
+Options All -Indexes
+
+# permite trabajar con las url amigables
+Options -MultiViews
+RewriteEngine On
+
+# siempre direccion a index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
