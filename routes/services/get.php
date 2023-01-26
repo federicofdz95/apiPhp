@@ -3,10 +3,10 @@
 
 require_once 'controllers/get.controller.php';
 
+$table = explode("?", $routesArray[2])[0];
 
-$table = 'productos';//$routesArray[1];
 
 $response = new GetController;
-$response -> getData($table);
+$response -> getData($table, $select);
 
 

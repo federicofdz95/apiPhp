@@ -30,3 +30,35 @@ Stack trace:
 #5 C:\xampp\htdocs\apiRestPhp\index.php(16): RoutesController->index()
 #6 {main}
   thrown in C:\xampp\htdocs\apiRestPhp\models\get.model.php on line 11
+[26-Jan-2023 19:27:49 Europe/Berlin] PHP Parse error:  syntax error, unexpected variable "$select", expecting "," or ";" in C:\xampp\htdocs\apiRestPhp\routes\services\get.php on line 9
+[26-Jan-2023 19:39:43 Europe/Berlin] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\apiRestPhp\routes\services\get.php on line 6
+[26-Jan-2023 19:39:52 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in C:\xampp\htdocs\apiRestPhp\models\get.model.php:11
+Stack trace:
+#0 C:\xampp\htdocs\apiRestPhp\models\get.model.php(11): PDOStatement->execute()
+#1 C:\xampp\htdocs\apiRestPhp\controllers\get.controller.php(9): GetModel::getData(NULL, '*')
+#2 C:\xampp\htdocs\apiRestPhp\routes\services\get.php(10): GetController::getData(NULL, '*')
+#3 C:\xampp\htdocs\apiRestPhp\routes\routes.php(38): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\apiRestPhp\controllers\routes.controller.php(7): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\apiRestPhp\index.php(16): RoutesController->index()
+#6 {main}
+  thrown in C:\xampp\htdocs\apiRestPhp\models\get.model.php on line 11
+[26-Jan-2023 19:43:08 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?select=producto' at line 1 in C:\xampp\htdocs\apiRestPhp\models\get.model.php:11
+Stack trace:
+#0 C:\xampp\htdocs\apiRestPhp\models\get.model.php(11): PDOStatement->execute()
+#1 C:\xampp\htdocs\apiRestPhp\controllers\get.controller.php(9): GetModel::getData('productos?selec...', 'producto')
+#2 C:\xampp\htdocs\apiRestPhp\routes\services\get.php(10): GetController::getData('productos?selec...', 'producto')
+#3 C:\xampp\htdocs\apiRestPhp\routes\routes.php(38): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\apiRestPhp\controllers\routes.controller.php(7): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\apiRestPhp\index.php(16): RoutesController->index()
+#6 {main}
+  thrown in C:\xampp\htdocs\apiRestPhp\models\get.model.php on line 11
+[26-Jan-2023 19:43:46 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?select=producto' at line 1 in C:\xampp\htdocs\apiRestPhp\models\get.model.php:11
+Stack trace:
+#0 C:\xampp\htdocs\apiRestPhp\models\get.model.php(11): PDOStatement->execute()
+#1 C:\xampp\htdocs\apiRestPhp\controllers\get.controller.php(9): GetModel::getData('productos?selec...', 'producto')
+#2 C:\xampp\htdocs\apiRestPhp\routes\services\get.php(10): GetController::getData('productos?selec...', 'producto')
+#3 C:\xampp\htdocs\apiRestPhp\routes\routes.php(38): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\apiRestPhp\controllers\routes.controller.php(7): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\apiRestPhp\index.php(16): RoutesController->index()
+#6 {main}
+  thrown in C:\xampp\htdocs\apiRestPhp\models\get.model.php on line 11

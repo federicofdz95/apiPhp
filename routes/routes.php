@@ -2,11 +2,19 @@
     
     $routesArray = explode("/", $_SERVER['REQUEST_URI']);
     $routesArray = array_filter($routesArray);
+
+    $select = $_GET['select'] ?? "*";
+
     /*
     echo '<pre>';
-    print_r($routesArray);
+    print_r($select);
+    echo '</pre>';
+
+    echo '<pre>';
+    print_r($routesArray[2]);
     echo '</pre>';
     */
+    
 
     if (count($routesArray) == 0) {
 
@@ -22,7 +30,7 @@
     }
 
 
-    if(count($routesArray) == 1 && isset($_SERVER["REQUEST_METHOD"])) {
+    if(count($routesArray) >= 1 && isset($_SERVER["REQUEST_METHOD"])) {
 
         // GET
         if($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -75,4 +83,6 @@
         }
         
 
+    } else {
+        echo 'Error';
     }
