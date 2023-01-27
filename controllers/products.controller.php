@@ -2,22 +2,31 @@
 
 require_once 'models/products.model.php';
 
-class GetController {
+class ProductsController {
 
     static public function getData($table) {
 
-        $response = GetModel::getData($table);
+        $response = ProductModel::getData($table);
         
-        $return = new GetController();
+        $return = new ProductsController();
         $return -> fncResponse($response);
     }
 
     static public function getDataId($table,$id)
     {
 
-        $response = GetModel::getDataId($table, $id);
+        $response = ProductModel::getDataId($table, $id);
 
-        $return = new GetController();
+        $return = new ProductsController();
+        $return->fncResponse($response);
+    }
+
+    static public function PostData($table, $data)
+    {
+
+        $response = ProductModel::PostData($table, $data);
+
+        $return = new ProductsController();
         $return->fncResponse($response);
     }
 
