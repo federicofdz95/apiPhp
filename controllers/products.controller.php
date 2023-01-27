@@ -1,15 +1,24 @@
 <?php
 
-require_once 'models/get.model.php';
+require_once 'models/products.model.php';
 
 class GetController {
 
-    static public function getData($table, $select) {            
+    static public function getData($table) {
 
-        $response = GetModel::getData($table, $select);
+        $response = GetModel::getData($table);
         
         $return = new GetController();
         $return -> fncResponse($response);
+    }
+
+    static public function getDataId($table,$id)
+    {
+
+        $response = GetModel::getDataId($table, $id);
+
+        $return = new GetController();
+        $return->fncResponse($response);
     }
 
     public function fncResponse($response) {

@@ -1,16 +1,17 @@
-<?php    
+<?php
 
-    /*=======================================
-    Mostrar errores
-    =======================================*/
+require 'flight/Flight.php';
 
-    ini_set("display_errors", 1);
-    ini_set("log_errors", 1);
-    ini_set("error_log", "C:/xampp/htdocs/apiRestPhp/php_error_log");
+Flight::route('/api/products', function () {
+    include 'routes/services/products.php';
+});
 
-    require_once 'controllers/routes.controller.php';
-    require_once 'models/connection.php';
-    
+Flight::route('/api/products/@id', function ($id) {
+    include 'routes/services/products.php';
+});
 
-    $index = new RoutesController();
-    $index-> index();
+Flight::route('/api/users', function () {
+    include 'routes/services/get.php';
+});
+
+Flight::start();

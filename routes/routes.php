@@ -1,15 +1,26 @@
 <?php
-    
+
+    require 'vendor/autoload.php';
+
+    Flight::route('/', function () {
+        echo 'hello world!';
+    });
+
+    Flight::start();
+
     $routesArray = explode("/", $_SERVER['REQUEST_URI']);
     $routesArray = array_filter($routesArray);
 
     $select = $_GET['select'] ?? "*";
 
-    /*
-    echo '<pre>';
-    print_r($select);
-    echo '</pre>';
+    if (empty($routesArray[2])) {
+        $table = "";
+    } else {
+        $table = explode("?", $routesArray[2])[0];
+    }
 
+
+    /*    
     echo '<pre>';
     print_r($routesArray[2]);
     echo '</pre>';
@@ -42,14 +53,7 @@
         // POST
         if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            $json = array(
-
-                'status' => 200,
-                'result' => 'Solicitud POST'
-            );
-
-            echo json_encode($json, http_response_code($json["status"]));
-            
+            include 'services/post.php';                       
 
         }
 
