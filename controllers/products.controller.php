@@ -25,10 +25,29 @@ class ProductsController {
     {
 
         $response = ProductModel::PostData($table, $data);
-
+        //echo $response; return;
         $return = new ProductsController();
-        $return->fncResponse($response);
+        $return->fncResponsePostPutDelete($response);
     }
+
+
+    static public function PutData($table, $data)
+    {
+        $response = ProductModel::PutData($table, $data);
+        //echo $response;return;
+        $return = new ProductsController();
+        $return->fncResponsePostPutDelete($response);
+    }
+
+
+    static public function DeleteData($table, $id_product)
+    {
+        $response = ProductModel::DeleteData($table, $id_product);
+        //echo $response;return;
+        $return = new ProductsController();
+        $return->fncResponsePostPutDelete($response);
+    }
+
 
     public function fncResponse($response) {
 
@@ -53,4 +72,28 @@ class ProductsController {
         
     }
 
+
+    public function fncResponsePostPutDelete($response)
+    {
+        
+        if (!empty($response) or $response==0) {
+            $json = array(
+
+                'status' => 200,                
+                'result' => "$response"
+            );
+
+            echo json_encode($json, http_response_code($json["status"]));
+        } else {
+            $json = array(
+
+                'status' => 404,
+                'result' => 'Error'
+            );
+
+            echo json_encode($json, http_response_code($json["status"]));
+        }
+    }
+
+    
 }
