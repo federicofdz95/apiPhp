@@ -1,50 +1,50 @@
 <?php
 
-require_once 'models/products.model.php';
+require_once 'models/menu.model.php';
 
-class ProductsController {
+class MenuController {
 
     static public function getData($table) {
 
-        $response = ProductModel::getData($table);
+        $response = MenuModel::getData($table);
         
-        $return = new ProductsController();
+        $return = new MenuController();
         $return -> fncResponse($response);
     }
 
     static public function getDataId($table,$id)
     {
 
-        $response = ProductModel::getDataId($table, $id);
-
-        $return = new ProductsController();
+        $response = MenuModel::getDataId($table, $id);
+        //echo $response; return;
+        $return = new MenuController();
         $return->fncResponse($response);
     }
 
     static public function PostData($table, $data)
     {
 
-        $response = ProductModel::PostData($table, $data);
+        $response = MenuModel::PostData($table, $data);
         //echo $response; return;
-        $return = new ProductsController();
+        $return = new MenuController();
         $return->fncResponsePostPutDelete($response);
     }
 
 
     static public function PutData($table, $data)
     {
-        $response = ProductModel::PutData($table, $data);
+        $response = MenuModel::PutData($table, $data);
         //echo $response;return;
-        $return = new ProductsController();
+        $return = new MenuController();
         $return->fncResponsePostPutDelete($response);
     }
 
 
     static public function DeleteData($table, $id_product)
     {
-        $response = ProductModel::DeleteData($table, $id_product);
+        $response = MenuModel::DeleteData($table, $id_product);
         //echo $response;return;
-        $return = new ProductsController();
+        $return = new MenuController();
         $return->fncResponsePostPutDelete($response);
     }
 

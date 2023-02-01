@@ -2,14 +2,17 @@
 
 require 'flight/Flight.php';
 require_once 'controllers/products.controller.php';
+require_once 'controllers/menu.controller.php';
 
-/*================================================
-PRODUCTS
-================================================*/
+
 if (Flight::request()->method == 'GET') {
 
+    /*================================================
+    PRODUCTS
+    ================================================*/
     Flight::route('/api/products', function () {
-        $table = explode('/', $_SERVER['REQUEST_URI'])[3];
+        //$table = explode('/', $_SERVER['REQUEST_URI'])[3];
+        $table = 'products';
         $response = new ProductsController;
         $response->getData($table);
     });
@@ -18,6 +21,16 @@ if (Flight::request()->method == 'GET') {
         $table = explode('/', $_SERVER['REQUEST_URI'])[3];
         $response = new ProductsController;
         $response->getDataId($table, $id);
+    });
+
+    /*================================================
+    MENU
+    ================================================*/
+    Flight::route('/api/menu', function () {
+
+        $table = 'menu';
+        $response = new MenuController;
+        $response->getData($table);
     });
 }
 
@@ -40,7 +53,7 @@ Flight::route('POST /api/products', function () {
     //echo json_encode($data); return;
     //echo $data['name']; return;
 
-    $table = explode('/', $_SERVER['REQUEST_URI'])[3];
+    $table = 'products';
     $response = new ProductsController;
     $response->PostData($table, $data);
     
@@ -57,7 +70,7 @@ Flight::route('PUT /api/products', function () {
         "name_product" => $name_product
     );
 
-    $table = explode('/', $_SERVER['REQUEST_URI'])[3];
+    $table = 'products';
     $response = new ProductsController;
     $response->PutData($table, $data);
 });
@@ -69,7 +82,7 @@ Flight::route('DELETE /api/products', function () {
 
     //echo $id_product; return;
 
-    $table = explode('/', $_SERVER['REQUEST_URI'])[3];
+    $table = 'products';
     $response = new ProductsController;
     $response->DeleteData($table, $id_product);
 });
@@ -81,6 +94,7 @@ USERS
 Flight::route('/api/users', function () {
     include 'routes/services/get.php';
 });
+
 
 
 /*================================================
